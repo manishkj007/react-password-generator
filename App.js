@@ -85,3 +85,58 @@ const App = () => {
 
   }
 
+
+  return (
+    <div className="App">
+      <div className="container">
+        <div className="generator">
+          <h2 className="generator__header">
+           Password Generator
+          </h2>
+          <div className="generator__password">
+            <h3 >{password}</h3>
+            <button className="copy__btn">
+              <i onClick={handleCopyPassword} className="far fa-clipboard"></i>
+            </button>
+          </div>
+          <div className="form-group">
+            <label htmlFor="password-strength">Password length</label>
+            <input className="pw" defaultValue={passwordLength} onChange={(e) => setPasswordLength(e.target.value)} type="number" id="password-stregth" name="password-strength" max="26" min="8" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="uppercase-letters">Add Uppercase Letters</label>
+            <input checked={includeUpperCase} onChange={(e) => setIncludeUpperCase(e.target.checked)} type="checkbox" id="uppercase-letters" name="uppercase-letters" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="lowercase-letters">Add Lowercase Letters</label>
+            <input checked={includeLowerCase} onChange={(e) => setIncludeLowerCase(e.target.checked)} type="checkbox" id="lowercase-letters" name="lowercase-letters" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="include-numbers">Include Numbers</label>
+            <input checked={includeNumbers} onChange={(e) => setIncludeNumbers(e.target.checked)} type="checkbox" id="include-numbers" name="include-numbers" />
+          </div>
+          <div className="form-group">
+            <label htmlFor="include-symbols">Include Symbols</label>
+            <input checked={includeSymbols} onChange={(e) => setIncludeSymbols(e.target.checked)} type="checkbox" id="include-symbols" name="include-symbols" />
+          </div>
+          <button onClick={handleGeneratePassword} className="generator__btn">
+            Generate Password
+          </button>
+          <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default App
